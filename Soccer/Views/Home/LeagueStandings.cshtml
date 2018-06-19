@@ -1,0 +1,43 @@
+﻿@model Soccer.Models.LeagueStanding
+
+@{
+    ViewBag.Title = "LeagueTable";
+}
+
+<h2>LeagueTable</h2>
+
+<br />
+
+<table style="width:100%">
+    <tr>
+        <th>POS</th>
+        <th></th>
+        <th>Team Name</th>
+        <th>PTS</th>
+        <th>GP</th>
+        <th>GD</th>
+        <th>W</th>
+        <th>L</th>
+        <th>D</th>
+        <th>GF</th>
+        <th>GA</th>
+    </tr>
+
+    @foreach (var team in Model.standing)
+    {
+    <tr>
+        <td>@team.position</td>
+        <td><img style="height: 30px" src="@team.crestURI"/></td>
+        <td>@Html.ActionLink(@team.teamName, "TeamView", "Home", new { url = team._links.team.href }, null)</td>
+        <td>@team.points</td>
+        <td>@team.playedGames</td>
+        <td>@team.goalDifference</td>
+        <td>@team.wins</td>
+        <td>@team.losses</td>
+        <td>@team.draws</td>
+        <td>@team.goals</td>
+        <td>@team.goalsAgainst</td>
+    </tr>
+    }
+
+</table> 

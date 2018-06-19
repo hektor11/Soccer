@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Soccer.Models.Competition>
+
+@{
+    ViewBag.Title = "LeagueSelection";
+}
+
+<h2>LeagueSelection</h2>
+<br />
+
+<table style="width:100%">
+    <tr>
+        <th>Caption</th>
+        <th>League</th>
+        <th>Year</th>
+    </tr>
+    @foreach (var comp in Model)
+    {
+    <tr>
+        <td>@Html.ActionLink(@comp.caption, "LeagueStandings", "Home", new { id = comp.id},null)</td>
+        <td>@comp.league</td>
+        <td>@comp.year</td>
+    </tr>
+    }
+
+</table> 
